@@ -41,5 +41,8 @@ object Example3_7 {
    // show heavy hitters
    blogsDF.withColumn("Big Hitters", (expr("Hits > 10000"))).show()
 
+   // write to a JSON file in the temp data directory
+   blogsDF.write.format("JSON").save("/tmp/blog_data")
+
   }
 }
